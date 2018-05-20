@@ -18,9 +18,12 @@ class HomeAddCategoryController: AnimatableModalViewController, StoryboardLoadab
     }
     
     var refreshHomeTitleblock: (([HomeNewsTitle], [HomeNewsTitle])->())?
+    var refreshHomeTitlesView: (([HomeNewsTitle]?, [HomeNewsTitle])->())?
     
     // 上部 我的频道
     private var homeTitles = [HomeNewsTitle]()
+    // 上一次更新之前的我的频道
+    private var lastTitles = [HomeNewsTitle]()
     // 下部 频道推荐数据
     var categories = [HomeNewsTitle]()
     
@@ -29,7 +32,8 @@ class HomeAddCategoryController: AnimatableModalViewController, StoryboardLoadab
     override func viewDidLoad() {
         super.viewDidLoad()
         // 从数据库中取出左右数据，赋值给 标题数组 titles
-        homeTitles = NewsTitleTable().selectAll()
+        self.homeTitles = NewsTitleTable().selectAll()
+        self.lastTitles = NewsTitleTable().selectAll()
         // 布局
         collectionView.collectionViewLayout = AddCategoryFlowLayout()
         // 注册 cell 和头部
@@ -97,7 +101,19 @@ class HomeAddCategoryController: AnimatableModalViewController, StoryboardLoadab
     
     /// 关闭按钮
     @IBAction func closeAddCategoryButtonClicked(_ sender: UIButton) {
+//        if self.lastTitles.count != self.homeTitles.count {
+//            self.refreshHomeTitlesView!(self.homeTitles, self.categories)
+//        } else {
+//            for (last, new) in zip(self.lastTitles, self.homeTitles) {
+//                if last.category != new.category {
+//                    self.refreshHomeTitlesView!(self.homeTitles, self.categories)
+//                    break
+//                }
+//            }
+//        }
+//        self.lastTitles = self.homeTitles
         self.refreshHomeTitleblock!(self.homeTitles, self.categories)
+        
         dismiss(animated: true, completion: nil)
     }
 }
