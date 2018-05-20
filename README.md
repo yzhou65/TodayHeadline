@@ -14,20 +14,13 @@
 ![](asset/8.gif)
 ![](asset/9.gif)
 
-# 项目环境
+# Environment
 
 - Xcode 9.3
 - Swift 4.1
 - iOS 11
 
-
-# 下面我上传了一些试看内容。
-
-### [101-项目搭建](http://player.youku.com/embed/XMzI1MzI3MTY4OA==)
-
-### [617-正则表达式匹配用户名话题和链接](http://player.youku.com/embed/XMzI1NjI1NjEyNA==)
-
-# 实现功能
+# Implementations
 - [x] 获取今日头条接口（接口获取方式请看 [使用 Charles 获取 https 的数据](https://www.jianshu.com/p/235bc6c3ca77)）
 - [x]   首页
 - [x]   查看图文详情（点击第一个 cell）
