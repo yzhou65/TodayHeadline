@@ -1,6 +1,6 @@
 //
 //  HomeAddCategoryController.swift
-//  TodayNews
+//  TodayHeadline
 //
 //  Created by Yue Zhou on 3/4/18.
 //  Copyright © 2018 Yue Zhou. All rights reserved.
@@ -39,6 +39,7 @@ class HomeAddCategoryController: AnimatableModalViewController, StoryboardLoadab
         collectionView.ym_registerSupplementaryHeaderView(reusableView: MyChannelReusableView.self)
         collectionView.allowsMultipleSelection = true
         collectionView.addGestureRecognizer(longPressRecognizer)
+        
         // 点击首页加号按钮，获取频道推荐数据
         if self.categories.count <= 0 {
             NetworkTool.loadHomeCategoryRecommend {
@@ -48,7 +49,6 @@ class HomeAddCategoryController: AnimatableModalViewController, StoryboardLoadab
                 self.collectionView.reloadData()
             }
         }
-        
     }
     
     
@@ -71,8 +71,12 @@ class HomeAddCategoryController: AnimatableModalViewController, StoryboardLoadab
                 }
             case .changed:
                 // 固定第一、二个不能移动
-                if selectedIndexPath.item <= 1 { collectionView.endInteractiveMovement(); break }
-                collectionView.updateInteractiveMovementTargetPosition(longPress.location(in: longPressRecognizer.view))
+                if selectedIndexPath.item <= 1 {
+                    collectionView.endInteractiveMovement();
+                    break
+                }
+                self.collectionView.updateInteractiveMovementTargetPosition(longPress.location(in: longPressRecognizer.view))
+               
             case .ended:
                 collectionView.endInteractiveMovement()
             default:
@@ -122,7 +126,7 @@ extension HomeAddCategoryController: UICollectionViewDelegate, UICollectionViewD
             channelResableView.channelReusableViewEditButtonClicked = { [weak self] (sender) in
                 self!.isEdit = sender.isSelected
                 if !sender.isSelected {
-                    let titles = self?.homeTitles
+//                    let titles = self?.homeTitles
                     //                    NewsTitleTable().deleteAll()
                     //                    NewsTitleTable().insert(titles!)
                     collectionView.endInteractiveMovement()

@@ -1,9 +1,9 @@
 //
 //  NewsDetailImageCommentController.swift
-//  TodayNews
+//  TodayHeadline
 //
-//  Created by 杨蒙 on 2018/2/1.
-//  Copyright © 2018年 hrscy. All rights reserved.
+//  Created by Yue Zhou on 2018/2/1.
+//  Copyright © 2018. All rights reserved.
 //
 
 import UIKit

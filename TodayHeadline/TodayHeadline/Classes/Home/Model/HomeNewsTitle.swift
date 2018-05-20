@@ -2,8 +2,8 @@
 //  HomeNewsTitle.swift
 //  News
 //
-//  Created by 杨蒙 on 2017/10/6.
-//  Copyright © 2017年 hrscy. All rights reserved.
+//  Created by Yue Zhou on 2017/10/6.
+//  Copyright © 2017. All rights reserved.
 //
 
 import Foundation

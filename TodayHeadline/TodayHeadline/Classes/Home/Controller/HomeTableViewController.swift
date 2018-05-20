@@ -2,8 +2,8 @@
 //  HomeTableViewController.swift
 //  News
 //
-//  Created by 杨蒙 on 2018/1/17.
-//  Copyright © 2018年 hrscy. All rights reserved.
+//  Created by Yue Zhou on 2018/1/17.
+//  Copyright © 2018. All rights reserved.
 //
 // 作为首页其他不同新闻类别的控制器的父控制器
 //

@@ -2,8 +2,8 @@
 //  TextLinkViewController.swift
 //  News
 //
-//  Created by 杨蒙 on 2018/1/22.
-//  Copyright © 2018年 hrscy. All rights reserved.
+//  Created by Yue Zhou on 2018/1/22.
+//  Copyright © 2018. All rights reserved.
 //  广告链接
 //
 

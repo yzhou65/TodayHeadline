@@ -2,8 +2,8 @@
 //  RelatedVideoTableViewController.swift
 //  News
 //
-//  Created by 杨蒙 on 2018/1/21.
-//  Copyright © 2018年 hrscy. All rights reserved.
+//  Created by Yue Zhou on 2018/1/21.
+//  Copyright © 2018. All rights reserved.
 //
 //  ********************暂未使用******************
 //  ********************仅供参考******************

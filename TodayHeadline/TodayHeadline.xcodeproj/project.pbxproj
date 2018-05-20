@@ -699,6 +699,8 @@
 		942DCF4C1F602220001AD160 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				941533F3202577FB008E0F26 /* MyChannelReusableView.swift */,
+				941533F4202577FC008E0F26 /* MyChannelReusableView.xib */,
 				946597852004D99D0006C37D /* BottomButton.swift */,
 				946597862004D99D0006C37D /* WendaAnswerBottomView.swift */,
 				946597822004D99D0006C37D /* WendaAnswerCell.swift */,
@@ -727,8 +729,6 @@
 				941533EB20257767008E0F26 /* ChannelRecommendCell.xib */,
 				941533EF202577EA008E0F26 /* ChannelRecommendReusableView.swift */,
 				941533F0202577EA008E0F26 /* ChannelRecommendReusableView.xib */,
-				941533F3202577FB008E0F26 /* MyChannelReusableView.swift */,
-				941533F4202577FC008E0F26 /* MyChannelReusableView.xib */,
 				940B028B20298168004355C2 /* HomeImageCollectionView.swift */,
 				940B0291202983E3004355C2 /* HomeImageCollectionView.xib */,
 				940B028D2029825D004355C2 /* HomeImageCell.swift */,

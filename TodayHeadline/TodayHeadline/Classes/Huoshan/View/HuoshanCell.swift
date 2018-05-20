@@ -2,8 +2,8 @@
 //  HuoshanCell.swift
 //  News
 //
-//  Created by 杨蒙 on 2018/1/14.
-//  Copyright © 2018年 hrscy. All rights reserved.
+//  Created by Yue Zhou on 2018/1/14.
+//  Copyright © 2018. All rights reserved.
 //
 
 import UIKit

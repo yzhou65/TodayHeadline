@@ -2,8 +2,8 @@
 //  VideoViewController.swift
 //  News
 //
-//  Created by 杨蒙 on 2018/1/16.
-//  Copyright © 2017年 hrscy. All rights reserved.
+//  Created by Yue Zhou on 2018/1/16.
+//  Copyright © 2017. All rights reserved.
 //
 
 import UIKit
