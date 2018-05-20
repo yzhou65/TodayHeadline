@@ -21,6 +21,7 @@
 - iOS 11
 
 # Implementations
+Replaced OOP with POP
 - [x] 获取今日头条接口（接口获取方式请看 [使用 Charles 获取 https 的数据](https://www.jianshu.com/p/235bc6c3ca77)）
 - [x]   首页
 - [x]   查看图文详情（点击第一个 cell）
