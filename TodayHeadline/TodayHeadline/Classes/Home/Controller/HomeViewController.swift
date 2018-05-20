@@ -91,7 +91,7 @@ extension HomeViewController {
     
     /// 设置子控制器
     private func configChildViewControllers(newsTitles: [HomeNewsTitle]) {
-        if self.childViewControllers.count > 0{
+        if self.childViewControllers.count > 0 {
             self.childViewControllers.forEach({
                 $0.view.removeFromSuperview()
                 $0.removeFromParentViewController()
@@ -167,7 +167,22 @@ extension HomeViewController {
                 homeAddCategoryVC.refreshHomeTitleblock = { (titles, categories) in
                     self?.categories = categories
                     self?.homeNewsTitles = titles
-                    self?.refreshTitleView()
+                    
+                    // 标题名称的数组
+                    let newTitles = self!.homeNewsTitles
+                    guard self!.pageTitleView == nil else {
+                        if self!.lastTitles.count != newTitles.count {
+                            self!.refreshTitles(with: newTitles)
+                        } else {
+                            for (last, new) in zip(self!.lastTitles, newTitles) {
+                                if last.category != new.category {
+                                    self!.refreshTitles(with: newTitles)
+                                    break
+                                }
+                            }
+                        }
+                        return
+                    }
                 }
                 self!.present(homeAddCategoryVC, animated: true, completion: nil)
             })
@@ -176,18 +191,31 @@ extension HomeViewController {
     
     private func refreshTitleView() {
         // 标题名称的数组
-        let titles = self.homeNewsTitles
-        if self.pageTitleView != nil && self.lastTitles.count != titles.count {
-            self.pageTitleView!.removeFromSuperview()
-            self.pageTitleView = nil
-            self.pageTitleView = SGPageTitleView(frame: CGRect(x: 0, y: 0, width: screenWidth - newsTitleHeight, height: newsTitleHeight), delegate: self, titleNames: titles.compactMap({ $0.name }), configure: self.configuration)
-            self.view.addSubview(self.pageTitleView!)
-            
-            // 内容视图
-            self.configChildViewControllers(newsTitles: titles)
-            
-            self.lastTitles = titles
+        let newTitles = self.homeNewsTitles
+        if self.pageTitleView != nil {
+            if self.lastTitles.count != newTitles.count {
+                refreshTitles(with: newTitles)
+            } else {
+                for (last, new) in zip(self.lastTitles, newTitles) {
+                    if last.category != new.category {
+                        refreshTitles(with: newTitles)
+                    }
+                }
+            }
         }
+    }
+    
+    /// 刷新标题栏 和 内容视图
+    private func refreshTitles(with newTitles: [HomeNewsTitle]) {
+        self.pageTitleView!.removeFromSuperview()
+        self.pageTitleView = nil
+        self.pageTitleView = SGPageTitleView(frame: CGRect(x: 0, y: 0, width: screenWidth - newsTitleHeight, height: newsTitleHeight), delegate: self, titleNames: newTitles.compactMap({ $0.name }), configure: self.configuration)
+        self.view.addSubview(self.pageTitleView!)
+        
+        // 内容视图
+        self.configChildViewControllers(newsTitles: newTitles)
+        
+        self.lastTitles = newTitles
     }
 }
 

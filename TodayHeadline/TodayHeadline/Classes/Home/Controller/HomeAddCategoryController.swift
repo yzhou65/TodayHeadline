@@ -56,11 +56,12 @@ class HomeAddCategoryController: AnimatableModalViewController, StoryboardLoadab
     private lazy var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressTarget))
     
     @objc private func longPressTarget(longPress: UILongPressGestureRecognizer) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "longPressTarget"), object: nil)
         // 选中的 点
         let selectedPoint = longPress.location(in: collectionView)
         // 转换成索引
         if let selectedIndexPath = collectionView.indexPathForItem(at: selectedPoint) {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "longPressTarget"), object: nil)
+            
             switch longPress.state {
             case .began:
                 if isEdit && selectedIndexPath.section == 0 { // 选中的是上部的 cell,并且是可编辑状态
